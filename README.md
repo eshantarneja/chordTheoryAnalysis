@@ -25,3 +25,32 @@ This notebook contains a majority of my work, broken up by each step in the proc
 4. Modeling (Not Started)
 
 5. Conclusion/Takeaways (Not Started)
+
+
+
+
+## 1. Data Collection
+
+
+The first step of the process was finding or creating an approptiate data set of guitar chords/tabelature. Specifically, I wanted a large data set of guitar tabelature from a variety of different difficulty levels, genres, artists, etc. One of my main objectives for this project was to build out my own ETL pipeline. With that in mind I decided to build a web scraper. 
+
+I scraped my data from the popular guitar chords website ultimate-guitar.com. To scrape the site I utilized the selenium data package. This was my first time web scraping so I relied heavily on this amazing [youtube tutorial](https://www.youtube.com/watch?v=Xjv1sY630Uc) from Tech With Tim ! The code for my scraper can be found in the scraping folder in my git. But I will give a brief overview of my process here...
+
+
+#### Choosing a site to scrape
+
+There are a few different websites that host guitar tabs, but the most popular by far is ultimate-guitar.com. I considered some other sites as well, but UG seemed to have by far the most inventory of tabs. More importantly, each tab seems to follow a similar format - which is great for scraping capabilities. 
+
+Unfortunately, UG does not have a single location that lists all of it's tabs, so I had to get a bit creative. I decided to break the scraping up into two parts. First, using the search page on UG to find the links to different song tabs, and stored that data in a csv. Second, I used that list I generated of song tabs and scraped through each song one by one, and stored that data in a csv.
+
+#### Gathering a list of tabs to scrape
+
+To gather the list of song url's, I played around with the url of the explore page. I itiratevely changed the url to filter by different genres and decades, resulting in different results in the search page. For each decade/genre combination, I would use selenium to grab all the urls from that page, navigate to the next page (often there were about 20 pages of results), then grabbed those urls as well. I would then change the decade/genre filter and go again.
+
+#### Scraping tabs
+
+Scraping the actual tabs once I had the URLs for them was rather straightforward. From each page, I gathered all information available about the song (chords, difficulty, capo, etc).
+
+#### Results and Takeaways
+
+In the end, I finished with a dataset of a little under 10,000 unique song tabs for guitar. I actually had a list of 30k tabs to eventually scrape, but unfortunately UG kicked me off the site for generating too much traffic. I had no idea this was a thing, but after reading about similar incidents online I decided to shut down the remaining scraping. I am a big user of UG and don't want to break any of their rules further! This was a great lesson though for future scraping activities - make sure to understand the site's guidelines regarding scraping before moving forward!
