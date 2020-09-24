@@ -56,8 +56,10 @@ In school, we learned that these were two, almost sequential, parts of the data 
 
 In the EDA itself I walk through each of the fields available in my data set to get a lay of the land. I then dive a little bit deeper into the chords of each song to learn some more about trends within the chord makeup of a song!
 
+All of my code for this section can be found in the Data Cleaning and EDA jupyter notebook.
 
-#### 3. Takeaways and Next Steps
+
+## 3. Takeaways and Next Steps
 
 Overall I'm really happy I started this project. I've always wanted to do a data science project on my own outside of school, but getting started seemed to be the hardest first step. Here's a couple of my takeaways and lessons learned from this project.
 
